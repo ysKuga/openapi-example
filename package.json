@@ -5,5 +5,8 @@
   "main": "index.js",
   "repository": "git@github.com:ysKuga/openapi-example.git",
   "author": "Yoshihiko Kuga <horrormovies.noga@gmail.com>",
-  "license": "MIT"
+  "license": "MIT",
+  "devDependencies": {
+    "husky": "^8.0.3"
+  }
 }
