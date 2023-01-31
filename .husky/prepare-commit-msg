@@ -1,0 +1,17 @@
+#!/usr/bin/env sh
+. "$(dirname -- "$0")/_/husky.sh"
+
+ROOT_DIR=$(pwd)
+readonly COMMIT_MSG_FILE="$ROOT_DIR/$1"
+readonly COMMIT_SOURCE=$2
+
+# grep に指定した $(module-a/) 配下の変更の検知
+MODULE_A=$(git diff --name-only --cached | grep '^module-a/' | wc -l)
+
+# module-a/ 配下に変更があった場合の処理
+if [ $MODULE_A -gt 0 ]; then
+  sh ./module-a/scripts/prepare-commit-msg.sh $COMMIT_MSG_FILE $COMMIT_SOURCE
+fi
+
+# プロジェクト用フック
+sh ./scripts/prepare-commit-msg.sh $COMMIT_MSG_FILE $COMMIT_SOURCE

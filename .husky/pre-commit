@@ -1,0 +1,13 @@
+#!/usr/bin/env sh
+. "$(dirname -- "$0")/_/husky.sh"
+
+# grep に指定した $(module-a/) 配下の変更の検知
+MODULE_A=$(git diff --name-only --cached | grep '^module-a/' | wc -l)
+
+# module-a/ 配下に変更があった場合の処理
+if [ $MODULE_A -gt 0 ]; then
+  echo "moduled-a"
+  # module-a/scripts/pre-commit などを指定して実行させる
+fi
+
+sh ./scripts/pre-commit.sh
