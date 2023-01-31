@@ -1,0 +1,9 @@
+{
+  "name": "openapi-example",
+  "version": "1.0.0",
+  "description": "OpenAPI の実例など",
+  "main": "index.js",
+  "repository": "git@github.com:ysKuga/openapi-example.git",
+  "author": "Yoshihiko Kuga <horrormovies.noga@gmail.com>",
+  "license": "MIT"
+}
