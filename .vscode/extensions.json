@@ -2,6 +2,7 @@
   "recommendations": [
     "redhat.vscode-yaml",
     "42crunch.vscode-openapi",
-    "mermade.openapi-lint"
+    "mermade.openapi-lint",
+    "proohit.openapi-snippets"
   ]
 }
