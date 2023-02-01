@@ -4,6 +4,7 @@
     "42crunch.vscode-openapi",
     "mermade.openapi-lint",
     "proohit.openapi-snippets",
-    "editorconfig.editorconfig"
+    "editorconfig.editorconfig",
+    "pascalreitermann93.vscode-yaml-sort"
   ]
 }
