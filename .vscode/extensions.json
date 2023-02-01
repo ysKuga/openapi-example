@@ -3,6 +3,7 @@
     "redhat.vscode-yaml",
     "42crunch.vscode-openapi",
     "mermade.openapi-lint",
-    "proohit.openapi-snippets"
+    "proohit.openapi-snippets",
+    "editorconfig.editorconfig"
   ]
 }
