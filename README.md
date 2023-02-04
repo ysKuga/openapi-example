@@ -32,6 +32,51 @@ paths:
 
 - パス内クエリについては `[{変数名}]` の形式とし、スラッシュをハイフンに (とりあえず)
   - `/product/{id}` -> `paths/product-[id].yaml`
+  - ただし以降に記述するような注意が必要となる。
+
+#### `paths/` 配下のファイル名について
+
+`paths/` 配下で `schemas` プロパティをファイルにより指定する場合、\
+その型定義はファイル名に準じたものとなる。
+
+```yaml
+# paths/product-[id].yaml
+get:
+  responses:
+    200:
+        application/json:
+          schema:
+            # この指定であると `api.ts` に生成される型名は `ProductId` となる。 (期待される型名は `Product`)
+            $ref: ../schemas/product.yaml
+```
+
+上記では `生成される型名は` と記述しているが、正確には型は生成されない上に実装に `ProductId` が使用されてしまう。
+
+```ts
+// ProductId の型は存在せず any となる。
+export const BasicApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
+  getProductById(id: number, options?: any): AxiosPromise<ProductId> {
+```
+
+このため `schemas/` 配下の読み込みは `components` プロパティを経由させて型名を明示的にしたほうがよい。
+
+```yaml
+# paths/product-[id].yaml
+get:
+  responses:
+    200:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/product"
+components:
+  schemas:
+    product:
+      $ref: ../schemas/product.yaml
+```
+
+- 上記についても独特な挙動があるようで、 `product:` でなく `entity:` としても型名は `Entity` でなく `Product` となる。
+  - `schemas:` に直接ファイル名を指定する場合にはファイル名の `-[id]` までを考慮されるが、\
+    `components:` 配下の定義の場合には別の挙動がある模様
 
 ### `schemas/`
 
