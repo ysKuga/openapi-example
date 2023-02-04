@@ -1,0 +1,29 @@
+get:
+  tags:
+    - basic
+  summary: ID による製品取得
+  description: 製品を 1 件返す
+  operationId: getProductTestById
+  parameters:
+    - name: id
+      in: path
+      description: product id
+      required: true
+      schema:
+        type: integer
+  responses:
+    200:
+      description: 成功時
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/product-test"
+          example:
+            id: 1
+            name: 製品 A
+            is_limited: false
+            released_at: 2021/09/01
+components:
+  schemas:
+    product-test:
+      $ref: ../schemas/product-test.yaml

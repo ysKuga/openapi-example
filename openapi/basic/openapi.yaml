@@ -14,3 +14,5 @@ tags:
 paths:
   /product/{id}:
     $ref: ./paths/product-[id].yaml
+  /product-test/{id}:
+    $ref: ./paths/product-test-[id].yaml
