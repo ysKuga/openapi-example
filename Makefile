@@ -5,6 +5,10 @@
 openapi-generate/basic: ## OpenAPI の生成 (basic) openapi-generated/basic/ 配下に作成
 	sh scripts/openapi/generate.sh basic `pwd`/openapi-generated/basic
 
+openapi2aspida/basic: ## openapi2aspida を使用して aspida のコードを生成
+	rm -rf openapi/basic/aspida/
+	npx openapi2aspida -i openapi/basic/generated/openapi/openapi.yaml -o openapi/basic/aspida
+
 help: ## print this message
 	@echo "Example operations by makefile."
 	@echo ""
