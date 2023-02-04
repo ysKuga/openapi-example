@@ -1,0 +1,18 @@
+type: object
+properties:
+  id:
+    type: integer
+    description: 製品の ID
+    example: 1
+  name:
+    type: string
+    description: 製品名
+    example: 製品 A
+  is_limited:
+    type: boolean
+    description: 限定販売かどうか
+    example: false
+  released_at:
+    type: string
+    description: 発売日
+    example: 2021/09/01
