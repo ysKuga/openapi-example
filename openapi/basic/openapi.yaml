@@ -1,0 +1,18 @@
+openapi: 3.0.3
+info:
+  title: OpenAPI のベース
+  description: OpenAPI のファイルをサンプルとして作成
+  version: 1.0.0
+servers:
+  - url: "{server}"
+    description: URL 一覧
+    variables:
+      server:
+        default: http://localhost:3000
+tags:
+  - name: basic
+paths:
+  /product/{id}:
+    $ref: ./paths/product-[id].yaml
+  /product-test/{id}:
+    $ref: ./paths/product-test-[id].yaml
