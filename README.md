@@ -85,6 +85,23 @@ components:
 - ケバブケースでファイルを定義
   - ファイル名がパスカルケースに変換されて型が生成されるため
 
+## コード生成
+
+### コード生成のオプションについて
+
+生成ファイルの権限を実行ユーザーにする。
+
+```sh
+-u $(stat -c "%u:%g" .)
+```
+
+`useSingleRequestParameter=true` を指定することにより引数をペイロード形式に
+
+```sh
+--additional-properties \
+useSingleRequestParameter=true
+```
+
 ## 課題
 
 ### `paths/` 配下でのエラー表示
