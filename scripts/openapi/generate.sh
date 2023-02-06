@@ -59,7 +59,7 @@ docker run --rm \
 docker run --rm \
   -u $(stat -c "%u:%g" .) \
   -v $TARGET_DIR:/input \
-  -v $TARGET_DIR:/output \
+  -v $OUTPUT:/output \
   openapitools/openapi-generator-cli \
   generate \
   -g openapi-yaml \

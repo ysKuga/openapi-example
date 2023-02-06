@@ -2,8 +2,8 @@
 # https://ktrysmt.github.io/blog/write-useful-help-command-by-shell/
 .DEFAULT_GOAL := help
 
-openapi-generate/basic: ## OpenAPI の生成 (basic) openapi/basic/generated/ 配下に作成
-	sh scripts/openapi/generate.sh basic `pwd`/openapi/basic
+openapi-generate/basic: ## OpenAPI の生成 (basic) openapi-generated/basic/ 配下に作成
+	sh scripts/openapi/generate.sh basic `pwd`/openapi-generated/basic
 
 help: ## print this message
 	@echo "Example operations by makefile."
