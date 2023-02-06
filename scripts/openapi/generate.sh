@@ -55,6 +55,20 @@ docker run --rm \
   --additional-properties \
   useSingleRequestParameter=true
 
+# 統合 openapi.yaml と同一ディレクトリに生成するが、 README の記述が競合するのでさきに実施する
+# openapi.json
+docker run --rm \
+  -u $(stat -c "%u:%g" .) \
+  -v $TARGET_DIR:/input \
+  -v $OUTPUT:/output \
+  openapitools/openapi-generator-cli \
+  generate \
+  -g openapi \
+  -i /input/openapi.yaml \
+  -o /output/generated/ \
+  --additional-properties \
+  useSingleRequestParameter=true
+
 # 統合 openapi.yaml
 docker run --rm \
   -u $(stat -c "%u:%g" .) \

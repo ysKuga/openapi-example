@@ -1,0 +1,155 @@
+{
+  "openapi" : "3.0.3",
+  "info" : {
+    "description" : "OpenAPI のファイルをサンプルとして作成",
+    "title" : "OpenAPI のベース",
+    "version" : "1.0.0"
+  },
+  "servers" : [ {
+    "description" : "URL 一覧",
+    "url" : "{server}",
+    "variables" : {
+      "server" : {
+        "default" : "http://localhost:3000"
+      }
+    }
+  } ],
+  "tags" : [ {
+    "name" : "basic"
+  } ],
+  "paths" : {
+    "/product/{id}" : {
+      "get" : {
+        "description" : "製品を 1 件返す",
+        "operationId" : "getProductById",
+        "parameters" : [ {
+          "description" : "product id",
+          "in" : "path",
+          "name" : "id",
+          "required" : true,
+          "schema" : {
+            "type" : "integer"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "content" : {
+              "application/json" : {
+                "example" : {
+                  "id" : 1,
+                  "name" : "製品 A",
+                  "is_limited" : false,
+                  "released_at" : "2021/09/01"
+                },
+                "schema" : {
+                  "$ref" : "#/components/schemas/product"
+                }
+              }
+            },
+            "description" : "成功時"
+          }
+        },
+        "summary" : "ID による製品取得",
+        "tags" : [ "basic" ]
+      }
+    },
+    "/product-test/{id}" : {
+      "get" : {
+        "description" : "製品を 1 件返す",
+        "operationId" : "getProductTestById",
+        "parameters" : [ {
+          "description" : "product id",
+          "in" : "path",
+          "name" : "id",
+          "required" : true,
+          "schema" : {
+            "type" : "integer"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "content" : {
+              "application/json" : {
+                "example" : {
+                  "id" : 1,
+                  "name" : "製品 A",
+                  "is_limited" : false,
+                  "released_at" : "2021/09/01"
+                },
+                "schema" : {
+                  "$ref" : "#/components/schemas/product-test"
+                }
+              }
+            },
+            "description" : "成功時"
+          }
+        },
+        "summary" : "ID による製品取得",
+        "tags" : [ "basic" ]
+      }
+    }
+  },
+  "components" : {
+    "schemas" : {
+      "product" : {
+        "description" : "製品",
+        "properties" : {
+          "id" : {
+            "description" : "製品の ID",
+            "example" : 1,
+            "type" : "integer"
+          },
+          "name" : {
+            "description" : "製品名",
+            "example" : "製品 A",
+            "type" : "string"
+          },
+          "is_limited" : {
+            "description" : "限定販売かどうか",
+            "example" : false,
+            "type" : "boolean"
+          },
+          "released_at" : {
+            "description" : "発売日",
+            "example" : "2021/09/01",
+            "type" : "string"
+          }
+        },
+        "required" : [ "id" ],
+        "type" : "object"
+      },
+      "product-test" : {
+        "description" : "テスト製品",
+        "properties" : {
+          "id" : {
+            "description" : "テスト製品の ID",
+            "example" : 1,
+            "type" : "integer"
+          },
+          "name" : {
+            "description" : "製品名",
+            "example" : "製品 A",
+            "type" : "string"
+          },
+          "type" : {
+            "description" : "タイプ",
+            "example" : "タイプ A",
+            "type" : "string"
+          },
+          "is_limited" : {
+            "description" : "限定販売かどうか",
+            "example" : false,
+            "type" : "boolean"
+          },
+          "released_at" : {
+            "description" : "発売日",
+            "example" : "2021/09/01",
+            "type" : "string"
+          }
+        },
+        "required" : [ "id", "name" ],
+        "type" : "object"
+      }
+    }
+  }
+}
