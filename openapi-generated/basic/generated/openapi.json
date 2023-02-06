@@ -92,6 +92,44 @@
   "components" : {
     "schemas" : {
       "product" : {
+        "allOf" : [ {
+          "$ref" : "#/components/schemas/product_allOf"
+        }, {
+          "$ref" : "#/components/schemas/entity-base"
+        } ]
+      },
+      "product-test" : {
+        "allOf" : [ {
+          "$ref" : "#/components/schemas/product_test_allOf"
+        }, {
+          "$ref" : "#/components/schemas/entity-base"
+        } ]
+      },
+      "entity-base" : {
+        "description" : "共通プロパティ",
+        "properties" : {
+          "created_at" : {
+            "description" : "生成日時",
+            "example" : "1999-07-07T00:00:00+09:00",
+            "format" : "date-time",
+            "type" : "string"
+          },
+          "updated_at" : {
+            "description" : "更新日時",
+            "example" : "1999-07-07T00:00:00+09:00",
+            "format" : "date-time",
+            "type" : "string"
+          },
+          "deleted_at" : {
+            "description" : "削除日時",
+            "example" : "1999-07-07T00:00:00+09:00",
+            "format" : "date-time",
+            "type" : "string"
+          }
+        },
+        "type" : "object"
+      },
+      "product_allOf" : {
         "description" : "製品",
         "properties" : {
           "id" : {
@@ -118,7 +156,7 @@
         "required" : [ "id" ],
         "type" : "object"
       },
-      "product-test" : {
+      "product_test_allOf" : {
         "description" : "テスト製品",
         "properties" : {
           "id" : {

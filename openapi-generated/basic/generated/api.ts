@@ -22,7 +22,32 @@ import { DUMMY_BASE_URL, assertParamExists, setApiKeyToObject, setBasicAuthToObj
 import { BASE_PATH, COLLECTION_FORMATS, RequestArgs, BaseAPI, RequiredError } from './base';
 
 /**
- * 製品
+ * 共通プロパティ
+ * @export
+ * @interface EntityBase
+ */
+export interface EntityBase {
+    /**
+     * 生成日時
+     * @type {string}
+     * @memberof EntityBase
+     */
+    'created_at'?: string;
+    /**
+     * 更新日時
+     * @type {string}
+     * @memberof EntityBase
+     */
+    'updated_at'?: string;
+    /**
+     * 削除日時
+     * @type {string}
+     * @memberof EntityBase
+     */
+    'deleted_at'?: string;
+}
+/**
+ * 
  * @export
  * @interface Product
  */
@@ -51,9 +76,58 @@ export interface Product {
      * @memberof Product
      */
     'released_at'?: string;
+    /**
+     * 生成日時
+     * @type {string}
+     * @memberof Product
+     */
+    'created_at'?: string;
+    /**
+     * 更新日時
+     * @type {string}
+     * @memberof Product
+     */
+    'updated_at'?: string;
+    /**
+     * 削除日時
+     * @type {string}
+     * @memberof Product
+     */
+    'deleted_at'?: string;
 }
 /**
- * テスト製品
+ * 製品
+ * @export
+ * @interface ProductAllOf
+ */
+export interface ProductAllOf {
+    /**
+     * 製品の ID
+     * @type {number}
+     * @memberof ProductAllOf
+     */
+    'id': number;
+    /**
+     * 製品名
+     * @type {string}
+     * @memberof ProductAllOf
+     */
+    'name'?: string;
+    /**
+     * 限定販売かどうか
+     * @type {boolean}
+     * @memberof ProductAllOf
+     */
+    'is_limited'?: boolean;
+    /**
+     * 発売日
+     * @type {string}
+     * @memberof ProductAllOf
+     */
+    'released_at'?: string;
+}
+/**
+ * 
  * @export
  * @interface ProductTest
  */
@@ -86,6 +160,61 @@ export interface ProductTest {
      * 発売日
      * @type {string}
      * @memberof ProductTest
+     */
+    'released_at'?: string;
+    /**
+     * 生成日時
+     * @type {string}
+     * @memberof ProductTest
+     */
+    'created_at'?: string;
+    /**
+     * 更新日時
+     * @type {string}
+     * @memberof ProductTest
+     */
+    'updated_at'?: string;
+    /**
+     * 削除日時
+     * @type {string}
+     * @memberof ProductTest
+     */
+    'deleted_at'?: string;
+}
+/**
+ * テスト製品
+ * @export
+ * @interface ProductTestAllOf
+ */
+export interface ProductTestAllOf {
+    /**
+     * テスト製品の ID
+     * @type {number}
+     * @memberof ProductTestAllOf
+     */
+    'id': number;
+    /**
+     * 製品名
+     * @type {string}
+     * @memberof ProductTestAllOf
+     */
+    'name': string;
+    /**
+     * タイプ
+     * @type {string}
+     * @memberof ProductTestAllOf
+     */
+    'type'?: string;
+    /**
+     * 限定販売かどうか
+     * @type {boolean}
+     * @memberof ProductTestAllOf
+     */
+    'is_limited'?: boolean;
+    /**
+     * 発売日
+     * @type {string}
+     * @memberof ProductTestAllOf
      */
     'released_at'?: string;
 }
