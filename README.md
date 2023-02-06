@@ -119,3 +119,11 @@ get:
 ```log
 Property tags is not allowed.yaml-schema: https://raw.githubusercontent.com/OAI/OpenAPI-Specification/master/schemas/v3.0/schema.json
 ```
+
+## openapi2aspida
+
+<https://github.com/aspida/openapi2aspida>
+
+openapi2aspida により `openapi.yaml` ファイルから `aspida` のコードを生成
+
+- aspida (pathpida も) はケバブケースのクエリに対応していないようなので正しく生成するにはキャメルケースにする必要がある。
