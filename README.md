@@ -102,6 +102,19 @@ components:
 useSingleRequestParameter=true
 ```
 
+`--additional-properties` がエラーとなった場合
+
+<https://github.com/OpenAPITools/openapi-generator/issues/10494#issuecomment-1043181314>
+
+- `-p` でそれぞれ指定するほうが正しい？
+
+```sh
+  -p useSingleRequestParameter=true \
+  -p modelPropertyNaming=original \
+  -p paramNaming="original" \
+  -p enumPropertyNaming="original"
+```
+
 ## 課題
 
 ### `paths/` 配下でのエラー表示
