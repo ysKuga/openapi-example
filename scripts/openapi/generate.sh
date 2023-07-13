@@ -44,7 +44,7 @@ mkdir -p $OUTPUT
 
 # コード生成
 docker run --rm \
-  -u $(stat -c "%u:%g" .) \
+  -u $(id -u):$(id -g) \
   -v $TARGET_DIR:/input \
   -v $OUTPUT:/output \
   openapitools/openapi-generator-cli \
@@ -58,7 +58,7 @@ docker run --rm \
 # 統合 openapi.yaml と同一ディレクトリに生成するが、 README の記述が競合するのでさきに実施する
 # openapi.json
 docker run --rm \
-  -u $(stat -c "%u:%g" .) \
+  -u $(id -u):$(id -g) \
   -v $TARGET_DIR:/input \
   -v $OUTPUT:/output \
   openapitools/openapi-generator-cli \
@@ -71,7 +71,7 @@ docker run --rm \
 
 # 統合 openapi.yaml
 docker run --rm \
-  -u $(stat -c "%u:%g" .) \
+  -u $(id -u):$(id -g) \
   -v $TARGET_DIR:/input \
   -v $OUTPUT:/output \
   openapitools/openapi-generator-cli \
